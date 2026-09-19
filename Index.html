@@ -848,7 +848,7 @@
   }
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('[data-nav]');
-    if(a){ e.preventDefault(); goTo(a.getAttribute('data-nav')); }
+    if(a){ e.preventDefault(); var page=a.getAttribute('data-nav'); var BACKEND='https://zypha-tech-hub-backend-luy7.vercel.app'; if(page==='admission'){ window.location.href=BACKEND+'/admission'; return; } if(page==='student-login'){ window.location.href=BACKEND+'/student/login'; return; } goTo(page); }
   });
 
   /* ---------- Mobile menu ---------- */
