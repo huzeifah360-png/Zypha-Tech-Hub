@@ -166,6 +166,59 @@
   /* angled divider echoing logo arrow */
   .angle-bottom{position:relative;}
   .angle-bottom::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:64px;background:inherit;clip-path:polygon(0 0,100% 100%,100% 100%,0% 100%);display:none;}
+/* ===== Mobile & tablet fixes (added) ===== */
+
+/* The wrapper around each page was picking up the big section padding,
+   leaving empty bands above and below every page. */
+section.page{padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{overflow-x:clip;}
+img{height:auto;}
+
+/* Tablets and phones: two-column layouts stack into one column */
+@media (max-width:860px){
+  [style*="1.1fr .9fr"],
+  [style*=".85fr 1.15fr"],
+  [style*=".8fr 1.2fr"]{
+    grid-template-columns:1fr !important;
+    gap:28px !important;
+  }
+}
+
+/* Phones */
+@media (max-width:640px){
+  body{font-size:16px;}
+  .container{padding:0 20px;}
+
+  /* tighter vertical spacing */
+  section{padding-top:52px !important;padding-bottom:52px !important;}
+  section.tight{padding-top:40px !important;padding-bottom:40px !important;}
+  section.page{padding:0 !important;}
+  .section-head{margin-bottom:30px;}
+  .grid{gap:18px;}
+
+  /* readable heading sizes */
+  h1{font-size:32px !important;line-height:1.15 !important;}
+  h2{font-size:26px !important;line-height:1.2 !important;}
+
+  /* big card/form padding shrinks */
+  [style*="padding:36px"],
+  [style*="padding:34px"],
+  [style*="padding:32px"]{padding:22px !important;}
+
+  .btn{padding:14px 22px;}
+  .nav-row{gap:12px;}
+  .brand img{height:34px;}
+
+  /* WhatsApp button: smaller and tucked into the corner */
+  #waBtn{width:52px !important;height:52px !important;right:14px !important;bottom:14px !important;}
+
+  /* small labels sit on their own line, so phone numbers and emails below them fit */
+  .eyebrow{display:flex;}
+
+  /* long emails / words wrap instead of overflowing */
+  a,p,h4{overflow-wrap:anywhere;}
+}
 </style>
 </head>
 <body>
